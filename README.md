@@ -37,7 +37,7 @@ Build tasks from source to dist:
 
 ### 5. Feedback task with [gulp-i18n-preprocess](https://github.com/t2ym/gulp-i18n-preprocess)
 
-  - Update default and localized JSON files in source to commit them later by a developer
+  - Update default and localized JSON files in source to commit them later by a developer or a build system
 
 ## Usage
 

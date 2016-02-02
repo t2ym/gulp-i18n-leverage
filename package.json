@@ -1,0 +1,38 @@
+{
+  "name": "gulp-i18n-leverage",
+  "version": "0.0.1",
+  "description": "Merge changes in default JSON into localized JSON for i18n-behavior",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/t2ym/gulp-i18n-leverage.git"
+  },
+  "keywords": [
+    "polymer",
+    "web-component",
+    "web-components",
+    "i18n",
+    "internationalization",
+    "l10n",
+    "localization",
+    "gulp"
+  ],
+  "author": "Tetsuya Mori <t2y3141592@gmail.com>",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/t2ym/gulp-i18n-leverage/issues"
+  },
+  "homepage": "https://github.com/t2ym/gulp-i18n-leverage#readme",
+  "dependencies": {
+    "deepcopy": "^0.6.1",
+    "fs": "0.0.2",
+    "gulp-util": "^3.0.7",
+    "json-stringify-safe": "^5.0.1",
+    "path": "^0.12.7",
+    "rfc6902": "^1.1.1",
+    "through2": "^2.0.0"
+  }
+}

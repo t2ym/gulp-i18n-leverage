@@ -19,17 +19,24 @@ Merge changes in default JSON into localized JSON for [i18n-behavior](https://gi
 
 Build tasks from source to dist:
 
-1. Scan task with [gulp-i18n-preprocess](https://github.com/t2ym/gulp-i18n-preprocess)
-1. Preprocess task with [gulp-i18n-preprocess](https://github.com/t2ym/gulp-i18n-preprocess)
-1. Leverage task 
+### 1. Scan task with [gulp-i18n-preprocess](https://github.com/t2ym/gulp-i18n-preprocess)
+
+### 2. Preprocess task with [gulp-i18n-preprocess](https://github.com/t2ym/gulp-i18n-preprocess)
+
+### 3. Leverage task 
+
   - Update localized JSON files by merging differences in default JSON from the previous build
   - Put them in dist
   - Merge all the UI texts into bundles object
-1. Bundles task with `fs.writeFileSync()`
+
+### 4. Bundles task with `fs.writeFileSync()`
+
   - Generate default bundled JSON file `bundle.json` from the bundles object
   - Generate per-locale bundled JSON files `bundle.*.json` from the bundles object
   - Put them in dist
-1. Feedback task with [gulp-i18n-preprocess](https://github.com/t2ym/gulp-i18n-preprocess)
+
+### 5. Feedback task with [gulp-i18n-preprocess](https://github.com/t2ym/gulp-i18n-preprocess)
+
   - Update default and localized JSON files in source to commit them later by a developer
 
 ## Usage

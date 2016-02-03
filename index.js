@@ -19,9 +19,9 @@ var through = require('through2');
  */
 module.exports = function(options) {
   return through.obj(function (file, enc, callback) {
-    var jsonSpace = options && options.jsonSpace ? options.jsonSpace : 2;
-    var srcPath = options && options.srcPath ? options.srcPath : 'app';
-    var distPath = options && options.distPath ? options.distPath : 'dist';
+    var jsonSpace = (options && options.jsonSpace !== undefined) ? options.jsonSpace : 2;
+    var srcPath = (options && options.srcPath !== undefined) ? options.srcPath : 'app';
+    var distPath = (options && options.distPath !== undefined) ? options.distPath : 'dist';
     var bundles = options && options.bundles ? options.bundles : {};
 
     if (file.isNull()) {

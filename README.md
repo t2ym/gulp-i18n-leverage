@@ -2,6 +2,8 @@
 
 Merge changes in default JSON into localized JSON for [i18n-behavior](https://github.com/t2ym/i18n-behavior)
 
+Project template available at [polymer-starter-kit-i18n](https://github.com/t2ym/polymer-starter-kit-i18n). On Github Pages (https://t2ym.github.io/polymer-starter-kit-i18n)
+
 ## Features
 
 - Merge changes in next default JSON from current default JSON into next localized JSON with the help of [rfc6902](https://github.com/chbrown/rfc6902)

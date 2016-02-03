@@ -63,8 +63,11 @@ Sample to show default options:
 
 ### Scan task
 
-Input: custom element HTMLs in source
-Output: attributesRepository object in gulpfile.js
+Input:
+  - Custom element HTMLs in source
+
+Output: 
+  - AttributesRepository object in gulpfile.js
 
 ```javascript
     var gulp = require('gulp');
@@ -90,8 +93,11 @@ Output: attributesRepository object in gulpfile.js
 
 ### Preprocess task
 
-Input: custom element HTMLs and non-custom-element HTMLs in source
-Output: preprocessed HTMLs and default JSON files in dist
+Input: 
+  - Custom element HTMLs and non-custom-element HTMLs in source
+
+Output: 
+  - Preprocessed HTMLs and default JSON files in dist
 
 ```javascript
     var gulp = require('gulp');
@@ -158,8 +164,11 @@ Output:
 
 ### Bundles task
 
-Input: Bundles object in gulpfile.js
-Output: Bundles JSON files in dist
+Input: 
+  - Bundles object in gulpfile.js
+
+Output: 
+  - Bundles JSON files in dist
 
 ```javascript
     var gulp = require('gulp');
@@ -197,6 +206,7 @@ Input:
   - Next localized JSON files in dist
   - Custom element HTMLs
   - Non-custom-element HTMLs
+
 Output:
   - Overwritten localized JSON files in source
   - Overwritten default JSON files in source

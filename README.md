@@ -117,11 +117,13 @@ Sample to show default options:
 
 ### Scan task
 
-Input:
+#### Note: Target HTMLs must import [i18n-behavior.html](https://github.com/t2ym/i18n-behavior) directly.
+
+#### Input: 
   - Custom element HTMLs in source
 
-Output: 
-  - AttributesRepository object in gulpfile.js
+#### Output: 
+  - attributesRepository object in gulpfile.js
 
 ```javascript
     var gulp = require('gulp');
@@ -147,10 +149,13 @@ Output:
 
 ### Preprocess task
 
-Input: 
-  - Custom element HTMLs and non-custom-element HTMLs in source
+#### Note: Target custom element HTMLs must import [i18n-behavior.html](https://github.com/t2ym/i18n-behavior) directly.
 
-Output: 
+#### Input: 
+  - Custom element HTMLs
+  - Non-custom-element HTMLs in source
+
+#### Output: 
   - Preprocessed HTMLs and default JSON files in dist
 
 ```javascript
@@ -189,12 +194,12 @@ Output:
 
 ### Leverage task
 
-Input:
+#### Input:
   - Current localized JSON files in source
   - Current default JSON files in source
   - Next default JSON files in dist
 
-Output:
+#### Output:
   - Next localized JSON files in dist
   - Bundles object in gulpfile.js
 
@@ -218,10 +223,10 @@ Output:
 
 ### Bundles task
 
-Input: 
+#### Input: 
   - Bundles object in gulpfile.js
 
-Output: 
+#### Output: 
   - Bundles JSON files in dist
 
 ```javascript
@@ -256,12 +261,14 @@ Output:
 
 ### Feedback task
 
-Input:
+#### Note: Target custom element HTMLs must import [i18n-behavior.html](https://github.com/t2ym/i18n-behavior) directly.
+
+#### Input:
   - Next localized JSON files in dist
   - Custom element HTMLs
   - Non-custom-element HTMLs
 
-Output:
+#### Output:
   - Overwritten localized JSON files in source
   - Overwritten default JSON files in source
 

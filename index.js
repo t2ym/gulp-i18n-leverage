@@ -80,20 +80,20 @@ module.exports = function(options) {
       r.srcBase = file.base.substr(0, file.base.length - 1);
       r.distBase = r.srcBase.substr(0, r.srcBase.length - srcPath.length) + distPath;
       r.urlPath = file.path.substr(r.srcBase.length);
-      var splitPath = r.urlPath.split('/locales/');
+      var splitPath = r.urlPath.split(path.sep + 'locales' + path.sep);
       r.componentBase = splitPath[0];
-      r.resourcePath = r.componentBase + '/locales';
+      r.resourcePath = r.componentBase + path.sep + 'locales';
       r.fileName = splitPath[1];
       r.extName = path.extname(r.fileName);
       var baseNameWithLang = r.fileName.substr(0, r.fileName.length - r.extName.length);
       var splitBaseName = baseNameWithLang.split('.');
       r.lang = splitBaseName.pop();
       r.baseName = r.fileName.substr(0, r.fileName.length - r.extName.length - r.lang.length - 1);
-      r.defaultPath = r.componentBase + '/' + r.baseName + r.extName;
+      r.defaultPath = r.componentBase + path.sep + r.baseName + r.extName;
       r.ancestorSrcPaths = [];
       var lang = getNextFallbackLanguage(r.lang);
       while (lang) {
-        r.ancestorSrcPaths.push(r.srcBase + r.resourcePath + '/' + r.baseName + '.' + lang + r.extName);
+        r.ancestorSrcPaths.push(r.srcBase + r.resourcePath + path.sep + r.baseName + '.' + lang + r.extName);
         lang = getNextFallbackLanguage(lang);
       }
       r.srcDefaultPath = r.srcBase + r.defaultPath;

@@ -76,8 +76,8 @@ module.exports = function(options) {
     function parsePath() {
       var r = {};
       r.path = file.path;
-      r.base = file.base;
-      r.srcBase = file.base.substr(0, file.base.length - 1);
+      r.base = file.base[file.base.length - 1] === path.sep ? file.base : file.base + path.sep;
+      r.srcBase = file.base.substr(0, r.base.length - 1);
       r.distBase = r.srcBase.substr(0, r.srcBase.length - srcPath.length) + distPath;
       r.urlPath = file.path.substr(r.srcBase.length);
       var splitPath = r.urlPath.split(path.sep + 'locales' + path.sep);

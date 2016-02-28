@@ -4,7 +4,3 @@ node_js:
   - "4"
   - "5"
 sudo: false
-before_script:
-  - npm install bower
-  - export PATH=$PWD/node_modules/.bin:$PATH
-  - bower install

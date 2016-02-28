@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/t2ym/gulp-i18n-leverage.svg?branch=master)](https://travis-ci.org/t2ym/gulp-i18n-leverage)
+
 # gulp-i18n-leverage
 
 Merge changes in default JSON into localized JSON for [i18n-behavior](https://github.com/t2ym/i18n-behavior)

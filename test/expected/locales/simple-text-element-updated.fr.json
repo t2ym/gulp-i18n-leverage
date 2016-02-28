@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "todo": [
+      {
+        "op": "add",
+        "path": "/added-1",
+        "value": "added text 1"
+      },
+      {
+        "op": "add",
+        "path": "/added-2",
+        "value": "added text 2"
+      },
+      {
+        "op": "add",
+        "path": "/added-3",
+        "value": "added text 3"
+      },
+      {
+        "op": "replace",
+        "path": "/span_5",
+        "value": "updated simple text without id"
+      },
+      {
+        "op": "replace",
+        "path": "/span_6",
+        "value": "updated simple text without id 2"
+      },
+      {
+        "op": "replace",
+        "path": "/label-1",
+        "value": "updated simple text with id"
+      },
+      {
+        "op": "replace",
+        "path": "/label-2",
+        "value": "updated simple text with id 2"
+      },
+      {
+        "op": "replace",
+        "path": "/div_9:span",
+        "value": "updated simple text within div"
+      },
+      {
+        "op": "replace",
+        "path": "/div_9:span_1",
+        "value": "updated simple text within div 2"
+      },
+      {
+        "op": "replace",
+        "path": "/div_10:text",
+        "value": " updated simple text as the first element in div "
+      },
+      {
+        "op": "replace",
+        "path": "/div_10:span_1",
+        "value": "updated simple text within div"
+      },
+      {
+        "op": "replace",
+        "path": "/div_10:text_2",
+        "value": " updated simple text in the middle of div "
+      },
+      {
+        "op": "replace",
+        "path": "/div_10:span_3",
+        "value": "updated simple text within div 2"
+      },
+      {
+        "op": "replace",
+        "path": "/div_10:text_5",
+        "value": " updated simple text at the last element in div "
+      },
+      {
+        "op": "replace",
+        "path": "/toplevel-div:span",
+        "value": "updated simple text within div"
+      },
+      {
+        "op": "replace",
+        "path": "/toplevel-div:span_1",
+        "value": "updated simple text within div 2"
+      },
+      {
+        "op": "replace",
+        "path": "/p_13/0",
+        "value": "An updated paragraph with {1} is converted to {2}."
+      },
+      {
+        "op": "replace",
+        "path": "/p_13/1",
+        "value": "updated parameters"
+      }
+    ]
+  },
+  "model": {},
+  "text": "fr  outermost text at the beginning ",
+  "h1_3": "fr outermost header 1",
+  "text_4": "fr  outermost text in the middle ",
+  "span_5": "updated simple text without id",
+  "span_6": "updated simple text without id 2",
+  "label-1": "updated simple text with id",
+  "label-2": "updated simple text with id 2",
+  "div_9:span": "updated simple text within div",
+  "div_9:span_1": "updated simple text within div 2",
+  "div_9:div_2:div": "fr great grandchild text within div",
+  "div_10:text": " updated simple text as the first element in div ",
+  "div_10:span_1": "updated simple text within div",
+  "div_10:text_2": " updated simple text in the middle of div ",
+  "div_10:span_3": "updated simple text within div 2",
+  "div_10:div_4:div": "fr great grandchild text within div",
+  "div_10:text_5": " updated simple text at the last element in div ",
+  "toplevel-div:span": "updated simple text within div",
+  "toplevel-div:span_1": "updated simple text within div 2",
+  "third-level-div": "fr great grandchild text within div",
+  "renamed-second-level-div:div_1": "fr great grandchild text within div without id",
+  "renamed-line-items:li": "fr line item with id 1",
+  "renamed-line-items:li_1": "fr line item with id 2",
+  "renamed-line-items:li_2": "fr line item with id 3",
+  "p_13": [
+    "An updated paragraph with {1} is converted to {2}.",
+    "updated parameters",
+    "fr <i18n-format>"
+  ],
+  "renamed-paragraph": [
+    "fr A paragraph with {1} is converted to {2}.",
+    "fr id",
+    "fr <i18n-format>"
+  ],
+  "text_15": "fr  outermost text at the end ",
+  "added-1": "added text 1",
+  "added-2": "added text 2",
+  "added-3": "added text 3"
+}

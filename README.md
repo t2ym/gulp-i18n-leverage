@@ -61,6 +61,7 @@ Sample to show default options:
           jsonSpace: 2, // default JSON format with 2 spaces
           srcPath: 'app', // default path to source root
           distPath: 'dist', // default path to dist root to fetch next default JSON files
+          finalize: false, // empty meta information if true
           bundles: {} // default output bundles object is empty
         }))
         .pipe(gulp.dest('dist')); // path to output next localized JSON files
@@ -167,6 +168,7 @@ Sample to show default options:
           jsonSpace: 2, // JSON format with 2 spaces
           srcPath: 'app', // path to source root
           distPath: 'dist', // path to dist root to fetch next default JSON files
+          finalize: false, // keep meta information
           bundles: bundles // output bundles object
         }))
         .pipe(gulp.dest('dist')); // path to output next localized JSON files
@@ -274,6 +276,7 @@ Outputs are ready to commit in the repository
 - jsonSpace: Number, default: 2 - JSON stringification parameter for formatting
 - srcPath: String, default: 'app' - Path to source root
 - distPath: String, default: 'dist' - Path to dist root to fetch next default JSON files
+- finalize: Boolean, default: false - Empty meta information if true
 - bundles: Object, default {} - Output bundles object
 
 ## Quick Tour

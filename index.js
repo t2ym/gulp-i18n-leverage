@@ -22,6 +22,7 @@ module.exports = function(options) {
     var jsonSpace = (options && options.jsonSpace !== undefined) ? options.jsonSpace : 2;
     var srcPath = (options && options.srcPath !== undefined) ? options.srcPath : 'app';
     var distPath = (options && options.distPath !== undefined) ? options.distPath : 'dist';
+    var finalize = (options && options.finalize !== undefined) ? options.finalize : false;
     var bundles = options && options.bundles ? options.bundles : {};
 
     if (file.isNull()) {
@@ -389,6 +390,16 @@ module.exports = function(options) {
       deepMap(currentLocalized, prevLocalized, function (value) { return value; });
 
       updateMetaTodo(currentLocalized, prevLocalizedOriginal);
+      if (finalize) {
+        if (currentLocalized.meta &&
+            currentLocalized.meta.todo &&
+            currentLocalized.meta.todo.length > 0) {
+          gutil.log(gutil.colors.cyan(paths.urlPath),
+                    gutil.colors.yellow('warning: discarding meta.todo ='),
+                    gutil.colors.gray('\n' + JSONstringify(currentLocalized.meta.todo, null, 2)));
+        }
+        currentLocalized.meta = {};
+      }
 
       //console.log(JSONstringify(patch, null, 2));
       bundles[paths.lang] = bundles[paths.lang] || {};

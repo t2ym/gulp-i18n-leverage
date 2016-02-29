@@ -35,6 +35,7 @@ process.chdir(__dirname);
 - jsonSpace: Number, default: 2 - JSON stringification parameter for formatting
 - srcPath: String, default: 'app' - Path to source root
 - distPath: String, default: 'dist' - Path to dist root to fetch next default JSON files
+- finalize: Boolean, default: false - Empty meta information if true
 - bundles: Object, default {} - Output bundles object
 
 */
@@ -117,6 +118,7 @@ var options_base = {
   jsonSpace: 2,
   srcPath: 'src',
   distPath: 'expected',
+  finalize: false,
   bundles: {}
 };
 
@@ -166,16 +168,20 @@ var suites = [
   s('gulp empty file', 'empty file', {
     gulp: true
   }),
-  s('empty json file', 'simple-text-element', {
-    targets: [ 'locales/simple-text-element-empty-json.fr.json' ]
-  }),
-  s('gulp empty json file', 'empty json file', {
-    gulp: true
-  }),
   s('updated', 'simple-text-element', {
     targets: [ 'locales/simple-text-element-updated.fr.json' ]
   }),
   s('gulp updated', 'updated', {
+    gulp: true
+  }),
+  s('finalize meta', 'simple-text-element', {
+    options: p({
+      finalize: true,
+      bundles: {}
+    }, options_base),
+    targets: [ 'locales/simple-text-element-finalize.fr.json' ]
+  }),
+  s('gulp finalize meta', 'finalize meta', {
     gulp: true
   }),
   s('bundles', 'simple-text-element', {
@@ -183,18 +189,18 @@ var suites = [
       'locales/simple-text-element.fr.json',
       'locales/simple-text-element-empty.fr.json',
       'locales/simple-text-element-empty-json.fr.json',
-      'locales/simple-text-element-updated.fr.json'      
+      'locales/simple-text-element-updated.fr.json'
     ],
     bundles: fromExpectedBundles
   }),
   s('gulp bundles', 'simple-text-element', {
     gulp: true,
-    targets: [ '**/locales/*.json' ],
+    targets: [ '**/locales/*.json', '!locales/simple-text-element-finalize.fr.json' ],
     expected: [ 
       'locales/simple-text-element.fr.json',
       'locales/simple-text-element-empty.fr.json',
       'locales/simple-text-element-empty-json.fr.json',
-      'locales/simple-text-element-updated.fr.json'      
+      'locales/simple-text-element-updated.fr.json'
     ],
     bundles: fromExpectedBundles
   })

@@ -333,23 +333,36 @@ module.exports = function(options) {
       var prevAncestors = [];
       var patchStatus;
       var i;
+      var tmpContents;
       try {
-        prevDefault = JSON.parse(fs.readFileSync(paths.srcDefaultPath, 'utf8'));
+        prevDefault = JSON.parse(tmpContents = fs.readFileSync(paths.srcDefaultPath, 'utf8'));
       }
       catch (e) {
-        prevDefault = {}; // presumably file not found
+        if (!e.toString().match(/SyntaxError/) || tmpContents) {
+          gutil.log(gutil.colors.cyan(paths.srcDefaultPath),
+                    gutil.colors.yellow(e.toString()));
+        }
+        prevDefault = { meta: {} }; // presumably file not found
       }
       try {
-        currentDefault = JSON.parse(fs.readFileSync(paths.distDefaultPath, 'utf8'));
+        currentDefault = JSON.parse(tmpContents = fs.readFileSync(paths.distDefaultPath, 'utf8'));
       }
       catch (e) {
-        currentDefault = {}; // presumably file not found
+        if (!e.toString().match(/SyntaxError/) || tmpContents) {
+          gutil.log(gutil.colors.cyan(paths.distDefaultPath),
+                    gutil.colors.yellow(e.toString()));
+        }
+        currentDefault = { meta: {} }; // presumably file not found
       }
       for (i = 0; i < paths.ancestorSrcPaths.length; i++) {
         try {
-          prevAncestors[i] = JSON.parse(fs.readFileSync(paths.ancestorSrcPaths[i], 'utf8'));
+          prevAncestors[i] = JSON.parse(tmpContents = fs.readFileSync(paths.ancestorSrcPaths[i], 'utf8'));
         }
         catch (e) {
+          if (!e.toString().match(/SyntaxError/) || tmpContents) {
+            gutil.log(gutil.colors.cyan(paths.ancestorSrcPaths[i]),
+                      gutil.colors.yellow(e.toString()));
+          }
           prevAncestors[i] = null; // presumably file not found
         }
       }
@@ -358,7 +371,11 @@ module.exports = function(options) {
         prevLocalized = JSON.parse(contents);
       }
       catch (e) {
-        prevLocalized = {};
+        if (!e.toString().match(/SyntaxError/) || contents) {
+          gutil.log(gutil.colors.cyan(paths.urlPath),
+                    gutil.colors.yellow(e.toString()));
+        }
+        prevLocalized = { meta: {} };
       }
       prevLocalizedOriginal = deepcopy(prevLocalized);
 

@@ -359,10 +359,6 @@ module.exports = function(options) {
           prevAncestors[i] = JSON.parse(tmpContents = fs.readFileSync(paths.ancestorSrcPaths[i], 'utf8'));
         }
         catch (e) {
-          if (!e.toString().match(/SyntaxError/) || tmpContents) {
-            gutil.log(gutil.colors.cyan(paths.ancestorSrcPaths[i]),
-                      gutil.colors.yellow(e.toString()));
-          }
           prevAncestors[i] = null; // presumably file not found
         }
       }

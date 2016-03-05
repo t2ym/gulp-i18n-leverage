@@ -7,6 +7,7 @@ Copyright (c) 2016, Tetsuya Mori <t2y3141592@gmail.com>. All rights reserved.
 var path = require('path');
 var fs = require('fs');
 var JSONstringify = require('json-stringify-safe');
+var stripBom = require('strip-bom');
 var rfc6902 = require('rfc6902');
 var deepcopy = require('deepcopy');
 var gutil = require('gulp-util');
@@ -335,7 +336,7 @@ module.exports = function(options) {
       var i;
       var tmpContents;
       try {
-        prevDefault = JSON.parse(tmpContents = fs.readFileSync(paths.srcDefaultPath, 'utf8'));
+        prevDefault = JSON.parse(stripBom(tmpContents = fs.readFileSync(paths.srcDefaultPath, 'utf8')));
       }
       catch (e) {
         if (!e.toString().match(/SyntaxError/) || tmpContents) {
@@ -345,7 +346,7 @@ module.exports = function(options) {
         prevDefault = { meta: {} }; // presumably file not found
       }
       try {
-        currentDefault = JSON.parse(tmpContents = fs.readFileSync(paths.distDefaultPath, 'utf8'));
+        currentDefault = JSON.parse(stripBom(tmpContents = fs.readFileSync(paths.distDefaultPath, 'utf8')));
       }
       catch (e) {
         if (!e.toString().match(/SyntaxError/) || tmpContents) {
@@ -356,7 +357,7 @@ module.exports = function(options) {
       }
       for (i = 0; i < paths.ancestorSrcPaths.length; i++) {
         try {
-          prevAncestors[i] = JSON.parse(tmpContents = fs.readFileSync(paths.ancestorSrcPaths[i], 'utf8'));
+          prevAncestors[i] = JSON.parse(stripBom(tmpContents = fs.readFileSync(paths.ancestorSrcPaths[i], 'utf8')));
         }
         catch (e) {
           prevAncestors[i] = null; // presumably file not found
@@ -364,7 +365,7 @@ module.exports = function(options) {
       }
 
       try {
-        prevLocalized = JSON.parse(contents);
+        prevLocalized = JSON.parse(stripBom(contents));
       }
       catch (e) {
         if (!e.toString().match(/SyntaxError/) || contents) {

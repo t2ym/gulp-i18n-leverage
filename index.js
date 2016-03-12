@@ -99,6 +99,7 @@ module.exports = function(options) {
       return r;
     }
 
+    /*
     function findPatch(patch, op, path) {
       for (var i in patch) {
         var item = patch[i];
@@ -108,6 +109,7 @@ module.exports = function(options) {
       }
       return null;
     }
+    */
 
     function findValue(obj, path) {
       var splitPath = path.split('/');

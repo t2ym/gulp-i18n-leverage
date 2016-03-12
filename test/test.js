@@ -152,6 +152,13 @@ var suites = [
   s('gulp simple-text-element', 'simple-text-element', {
     gulp: true
   }),
+  s('fallback-text-element', 'simple-text-element', {
+    options: p({
+      bundles: {}
+    }, options_base),
+    targets: [ 'locales/fallback-text-element.fr-CA.json' ],
+    expected: fromTarget    
+  }),  
   s('absolute srcPath/distPath', 'simple-text-element', {
     options: p({
       srcPath: path.resolve('src'),
@@ -189,7 +196,9 @@ var suites = [
       'locales/simple-text-element.fr.json',
       'locales/simple-text-element-empty.fr.json',
       'locales/simple-text-element-empty-json.fr.json',
-      'locales/simple-text-element-updated.fr.json'
+      'locales/simple-text-element-updated.fr.json',
+      'locales/fallback-text-element.fr.json',
+      'locales/fallback-text-element.fr-CA.json'
     ],
     bundles: fromExpectedBundles
   }),
@@ -200,7 +209,9 @@ var suites = [
       'locales/simple-text-element.fr.json',
       'locales/simple-text-element-empty.fr.json',
       'locales/simple-text-element-empty-json.fr.json',
-      'locales/simple-text-element-updated.fr.json'
+      'locales/simple-text-element-updated.fr.json',
+      'locales/fallback-text-element.fr.json',
+      'locales/fallback-text-element.fr-CA.json'
     ],
     bundles: fromExpectedBundles
   })

@@ -51,11 +51,6 @@ module.exports = function(options) {
             deepMap(target[prop], value, map);
           }
           break;
-        case 'function':
-        case 'symbol':
-        case 'undefined':
-          target[prop] = value;
-          break;
         default:
           target[prop] = value;
           break;

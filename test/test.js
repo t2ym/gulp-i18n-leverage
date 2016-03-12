@@ -159,6 +159,13 @@ var suites = [
     targets: [ 'locales/fallback-text-element.fr-CA.json' ],
     expected: fromTarget    
   }),  
+  s('error-element', 'simple-text-element', {
+    options: p({
+      bundles: {}
+    }, options_base),
+    targets: [ 'locales/error-element.fr.json' ],
+    expected: fromTarget    
+  }),  
   s('absolute srcPath/distPath', 'simple-text-element', {
     options: p({
       srcPath: path.resolve('src'),
@@ -193,6 +200,7 @@ var suites = [
   }),
   s('bundles', 'simple-text-element', {
     targets: [ 
+      'locales/error-element.fr.json',
       'locales/simple-text-element.fr.json',
       'locales/simple-text-element-empty.fr.json',
       'locales/simple-text-element-empty-json.fr.json',
@@ -206,6 +214,7 @@ var suites = [
     gulp: true,
     targets: [ '**/locales/*.json', '!locales/simple-text-element-finalize.fr.json' ],
     expected: [ 
+      'locales/error-element.fr.json',
       'locales/simple-text-element.fr.json',
       'locales/simple-text-element-empty.fr.json',
       'locales/simple-text-element-empty-json.fr.json',
@@ -357,6 +366,7 @@ suite('gulp-i18n-leverage', function () {
               }
             }
             outputs.forEach(function (file, index) {
+              console.log(file.path);
               assert.ok(expectedPaths.indexOf(file.path) >= 0, file.path + ' is output');
             });
             assert.equal(outputs.length, expectedPaths.length,

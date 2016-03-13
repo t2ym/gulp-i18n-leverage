@@ -438,6 +438,7 @@ module.exports = function(options) {
         }
       }
 
+      /* istanbul ignore next: non-null, non-stream, non-buffer file should not come */
       callback(null, file);
     }
 

@@ -26,10 +26,6 @@ module.exports = function(options) {
     var finalize = (options && options.finalize !== undefined) ? options.finalize : false;
     var bundles = options && options.bundles ? options.bundles : {};
 
-    if (file.isNull()) {
-      return callback(null, file);
-    }
-
     function deepMap(target, source, map) {
       var value;
       for (var prop in source) {

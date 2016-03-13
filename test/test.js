@@ -205,6 +205,10 @@ var suites = [
     expected: [],
     throw: 'Streaming not supported'
   }),
+  s('null file', 'simple-text-element', {
+    isNull: true,
+    expected: fromTarget
+  }),
   s('bundles', 'simple-text-element', {
     targets: [ 
       'locales/error-element.fr.json',
@@ -267,7 +271,7 @@ suite('gulp-i18n-leverage', function () {
               cwd: __dirname,
               base: n2h(params.options.srcPath),
               path: path.join(n2h(params.srcBaseDir), target),
-              contents: fs.readFileSync(path.join(n2h(params.srcBaseDir), target))
+              contents: params.isNull ? null : fs.readFileSync(path.join(n2h(params.srcBaseDir), target))
             });
           });
         outputs = [];
@@ -290,7 +294,7 @@ suite('gulp-i18n-leverage', function () {
                 cwd: __dirname,
                 base: path.join(__dirname, n2h(params.expectedBaseDir)),
                 path: target,
-                contents: fs.readFileSync(target)
+                contents: params.isNull ? null : fs.readFileSync(target)
               })
             }) : null;
         }
@@ -406,16 +410,22 @@ suite('gulp-i18n-leverage', function () {
                 cwd: __dirname,
                 base: file.base,
                 path: file.path,
-                contents: fs.readFileSync(file.path)
+                contents: params.isNull ? null : fs.readFileSync(file.path)
               });
             }
-            if (file.contents.toString() !== expectedFile.contents.toString()) {
+            if (file.contents && file.contents.toString() !== expectedFile.contents.toString()) {
               console.log('file.path = ' + file.path);
               console.log('expected = ' + expectedFile.contents.toString());
               console.log('actual = ' + file.contents.toString());
             }
-            assert.equal(file.contents.toString(), expectedFile.contents.toString(),
-              'get expected file contents for ' + expectedFile.path);
+            if (params.isNull) {
+              assert.ok(file.isNull(),
+                'get expected null file contents for ' + expectedFile.path);
+            }
+            else {
+              assert.equal(file.contents.toString(), expectedFile.contents.toString(),
+                'get expected file contents for ' + expectedFile.path);
+            }
           });
         });
       }

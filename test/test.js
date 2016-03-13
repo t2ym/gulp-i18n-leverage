@@ -128,7 +128,8 @@ var params_base = {
   srcBaseDir: 'src',
   targets: [],
   expectedBaseDir: 'expected',
-  expected: []
+  expected: [],
+  buffer: true
 };
 
 function fromTarget (target) {
@@ -197,6 +198,12 @@ var suites = [
   }),
   s('gulp finalize meta', 'finalize meta', {
     gulp: true
+  }),
+  s('gulp no buffer', 'simple-text-element', {
+    gulp: true,
+    buffer: false,
+    expected: [],
+    throw: 'Streaming not supported'
   }),
   s('bundles', 'simple-text-element', {
     targets: [ 
@@ -303,12 +310,21 @@ suite('gulp-i18n-leverage', function () {
       if (params.gulp) {
         test('leverage in gulp', function (done) {
           gulp.task('leverage', function () {
-            return gulp.src(inputs, { base: params.options.srcPath })
+            return gulp.src(inputs, { base: params.options.srcPath, buffer: params.buffer })
               .pipe(through.obj(function (file, enc, callback) {
                 expandedInputPaths.push(file.path);
                 callback(null, file);
               }))
               .pipe(leverage)
+              .on('error', function (err) {
+                if (params.throw) {
+                  assert.equal(err.message, params.throw, 'Throws ' + params.throw);
+                  done();
+                }
+                else {
+                  throw err;
+                }
+              })
               .pipe(through.obj(function (file, enc, callback) {
                 assert.ok(file.path && file.contents, 'get a file for ' + file.path);
                 convertToExpectedPath(file, params.srcBaseDir, params.expectedBaseDir);

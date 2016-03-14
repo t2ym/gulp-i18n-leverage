@@ -173,7 +173,7 @@ module.exports = function(options) {
         if (typeof rawOp.value === 'object') {
           fragmentObject(rawOp.value, '').forEach(function (op) {
             for (var p in op) {
-              operations.push({ op: rawOp.op, from: rawOp.from + p, path: rawOp.path + p });
+              operations.push({ op: rawOp.op, from: rawOp.from + p, path: rawOp.path + p, value: rawOp.value[p.substr(1)] });
             }
           });
         }
@@ -232,7 +232,7 @@ module.exports = function(options) {
             item.op = 'move';
             item.from = item.path;
             item.path = item2.path;
-            delete item.value;
+            //delete item.value;
             item2.op = 'noop';
           }
         }

@@ -37,5 +37,9 @@
     "id",
     "<i18n-format>"
   ],
+  "manual-object": {
+    "name1": "name 1",
+    "name2": "name 2"
+  },
   "text_15": " outermost text at the end "
 }

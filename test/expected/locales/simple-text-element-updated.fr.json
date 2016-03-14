@@ -3,6 +3,16 @@
     "todo": [
       {
         "op": "add",
+        "path": "/renamed-manual-object/name1",
+        "value": "name 1"
+      },
+      {
+        "op": "add",
+        "path": "/renamed-manual-object/name2",
+        "value": "name 2"
+      },
+      {
+        "op": "add",
         "path": "/added-1",
         "value": "added text 1"
       },
@@ -127,6 +137,10 @@
     "fr id",
     "fr <i18n-format>"
   ],
+  "renamed-manual-object": {
+    "name1": "name 1",
+    "name2": "name 2"
+  },
   "text_15": "fr  outermost text at the end ",
   "added-1": "added text 1",
   "added-2": "added text 2",

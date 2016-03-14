@@ -34,6 +34,10 @@
     "id",
     "<i18n-format>"
   ],
+  "renamed-manual-object": {
+    "name1": "name 1",
+    "name2": "name 2"
+  },
   "text_15": " outermost text at the end ",
   "added-1": "added text 1",
   "added-2": "added text 2",

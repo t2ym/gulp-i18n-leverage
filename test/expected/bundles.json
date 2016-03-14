@@ -481,6 +481,11 @@
           },
           {
             "op": "add",
+            "path": "/renamed-paragraph/1",
+            "value": "id"
+          },
+          {
+            "op": "add",
             "path": "/added-1",
             "value": "added text 1"
           },
@@ -602,7 +607,7 @@
       ],
       "renamed-paragraph": [
         "fr A paragraph with {1} is converted to {2}.",
-        "fr id",
+        "id",
         "fr <i18n-format>"
       ],
       "renamed-manual-object": {

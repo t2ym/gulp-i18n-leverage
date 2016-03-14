@@ -15,6 +15,11 @@
         "op": "add",
         "path": "/extra-array/4",
         "value": "array 4"
+      },
+      {
+        "op": "add",
+        "path": "/paragraph/1",
+        "value": "id"
       }
     ]
   },
@@ -67,7 +72,7 @@
   ],
   "paragraph": [
     "fr A paragraph with {1} is converted to {2}.",
-    "fr id",
+    "id",
     "fr <i18n-format>"
   ],
   "manual-object": {

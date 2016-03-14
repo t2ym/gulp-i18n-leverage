@@ -481,6 +481,11 @@
           },
           {
             "op": "add",
+            "path": "/renamed-manual-object/name3",
+            "value": "name 3"
+          },
+          {
+            "op": "add",
             "path": "/renamed-paragraph/1",
             "value": "id"
           },
@@ -612,7 +617,8 @@
       ],
       "renamed-manual-object": {
         "name1": "fr name 1",
-        "name2": "name 2"
+        "name2": "name 2",
+        "name3": "name 3"
       },
       "text_15": "fr  outermost text at the end ",
       "added-1": "added text 1",

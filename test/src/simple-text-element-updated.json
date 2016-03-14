@@ -1,6 +1,11 @@
 {
   "meta": {},
-  "model": {},
+  "model": {
+    "extra-model-object": {
+      "extra-model-1": "extra model 1",
+      "extra-model-2": "extra model 2"
+    }
+  },
   "text": " outermost text at the beginning ",
   "h1_3": "outermost header 1",
   "text_4": " outermost text in the middle ",

@@ -2,7 +2,22 @@
   "meta": {
     "todo": []
   },
-  "model": {},
+  "model": {
+    "extra-model-object": {
+      "attr1": {
+        "extra-model-1": "fr extra model 1",
+        "extra-model-2": "fr extra model 2",
+        "extra-model-inner-array": [
+          "fr extra model inner array 1",
+          "fr extra model inner array 2"
+        ]
+      },
+      "attr2": {
+        "extra-attr-1": "fr extra attr 1",
+        "extra-attr-2": "fr extra attr 2"
+      }
+    }
+  },
   "text": "fr  outermost text at the beginning ",
   "h1_3": "fr outermost header 1",
   "text_4": "fr  outermost text in the middle ",

@@ -155,6 +155,9 @@ module.exports = function(options) {
       case 'remove':
       case 'replace':
         if (typeof rawOp.value === 'object') {
+          if (rawOp.op === 'remove') {
+            operations.push(rawOp);
+          }
           fragmentObject(rawOp.value, rawOp.path).forEach(function (op) {
             for (var p in op) {
               operations.push({ op: rawOp.op, path: p, value: op[p] });

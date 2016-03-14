@@ -1,6 +1,22 @@
 {
   "meta": {
-    "todo": []
+    "todo": [
+      {
+        "op": "replace",
+        "path": "/second-level-div:div_1",
+        "value": "great grandchild text within div without id"
+      },
+      {
+        "op": "add",
+        "path": "/manual-object/name2",
+        "value": "name 2"
+      },
+      {
+        "op": "add",
+        "path": "/extra-array/4",
+        "value": "array 4"
+      }
+    ]
   },
   "model": {
     "extra-model-object": {
@@ -54,6 +70,10 @@
     "fr id",
     "fr <i18n-format>"
   ],
+  "manual-object": {
+    "name1": "fr name 1",
+    "name2": "name 2"
+  },
   "extra-object": {
     "extra1": "fr extra 1",
     "extra2": "fr extra 2",
@@ -63,12 +83,13 @@
     ]
   },
   "extra-array": [
-    "fr array 1",
+    "array 1",
     "fr array 2",
     {
       "extra-array-object-1": "fr object 1",
       "extra-array-object-2": "fr object 2"
-    }
+    },
+    "array 4"
   ],
   "text_15": "fr  outermost text at the end "
 }

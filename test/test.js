@@ -453,7 +453,7 @@ suite('gulp-i18n-leverage', function () {
           else {
             expectedBundles = params.bundles;
           }
-          //console.log(JSONstringify(bundles, null, 2));
+          //console.log('bundles = \n' + JSONstringify(bundles, null, 2));
           assert.deepEqual(bundles,
             expectedBundles,
             'get expected bundles');

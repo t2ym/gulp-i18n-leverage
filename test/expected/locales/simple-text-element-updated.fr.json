@@ -2,9 +2,9 @@
   "meta": {
     "todo": [
       {
-        "op": "add",
-        "path": "/renamed-manual-object/name1",
-        "value": "name 1"
+        "op": "replace",
+        "path": "/renamed-second-level-div:div_1",
+        "value": "great grandchild text within div without id"
       },
       {
         "op": "add",
@@ -138,7 +138,7 @@
     "fr <i18n-format>"
   ],
   "renamed-manual-object": {
-    "name1": "name 1",
+    "name1": "fr name 1",
     "name2": "name 2"
   },
   "text_15": "fr  outermost text at the end ",

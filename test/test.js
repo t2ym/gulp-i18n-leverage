@@ -160,6 +160,13 @@ var suites = [
     targets: [ 'locales/fallback-text-element.fr-CA.json' ],
     expected: fromTarget    
   }),  
+  s('missing fallback-text-element', 'simple-text-element', {
+    options: p({
+      bundles: {}
+    }, options_base),
+    targets: [ 'locales/fallback-text-element.zh-Hans-CN.json' ],
+    expected: fromTarget    
+  }),  
   s('error-element', 'simple-text-element', {
     options: p({
       bundles: {}
@@ -217,7 +224,8 @@ var suites = [
       'locales/simple-text-element-empty-json.fr.json',
       'locales/simple-text-element-updated.fr.json',
       'locales/fallback-text-element.fr.json',
-      'locales/fallback-text-element.fr-CA.json'
+      'locales/fallback-text-element.fr-CA.json',
+      'locales/fallback-text-element.zh-Hans-CN.json'
     ],
     bundles: fromExpectedBundles
   }),
@@ -231,7 +239,8 @@ var suites = [
       'locales/simple-text-element-empty-json.fr.json',
       'locales/simple-text-element-updated.fr.json',
       'locales/fallback-text-element.fr.json',
-      'locales/fallback-text-element.fr-CA.json'
+      'locales/fallback-text-element.fr-CA.json',
+      'locales/fallback-text-element.zh-Hans-CN.json'
     ],
     bundles: fromExpectedBundles
   })

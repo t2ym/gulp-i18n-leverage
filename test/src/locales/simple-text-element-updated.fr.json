@@ -39,5 +39,13 @@
     "fr id",
     "fr <i18n-format>"
   ],
+  "extra-object": {
+    "extra1": "fr extra 1",
+    "extra2": "fr extra 2"
+  },
+  "extra-array": [
+    "fr array 1",
+    "fr array 2"
+  ],
   "text_15": "fr  outermost text at the end "
 }

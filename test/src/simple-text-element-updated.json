@@ -41,5 +41,13 @@
     "name1": "name 1",
     "name2": "name 2"
   },
+  "extra-object": {
+    "extra1": "extra 1",
+    "extra2": "extra 2"
+  },
+  "extra-array": [
+    "array 1",
+    "array 2"
+  ],
   "text_15": " outermost text at the end "
 }

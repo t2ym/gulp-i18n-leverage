@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/t2ym/gulp-i18n-leverage.svg?branch=master)](https://travis-ci.org/t2ym/gulp-i18n-leverage)
 [![Coverage Status](https://coveralls.io/repos/github/t2ym/gulp-i18n-leverage/badge.svg?branch=master)](https://coveralls.io/github/t2ym/gulp-i18n-leverage?branch=master)
+[![npm](https://img.shields.io/npm/v/gulp-i18n-leverage.svg)](https://www.npmjs.com/package/gulp-i18n-leverage)
 
 # gulp-i18n-leverage
 

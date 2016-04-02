@@ -147,6 +147,63 @@ Sample to show default options:
     });
 ```
 
+### Import Xliff task (experimental)
+
+#### Note: This task has to be processed before [Leverage task with unbundle](#leverage-task-with-unbundle) to pick up outputs of this task.
+
+#### Input:
+  - Next Xliff files in source
+  - Current bundle JSON files in source (as output templates)
+
+#### Output:
+  - Overwritten bundle JSON files in source
+
+```javascript
+    var gulp = require('gulp');
+    var JSONstringify = require('json-stringify-safe');
+    var through = require('through2');
+    var xliff2bundlejson = require('xliff2bundlejson');
+
+    // Import bundles.{lang}.xlf
+    gulp.task('import-xliff', function () {
+      var xliffPath = path.join('app', 'xliff');
+      var x2j = new xliff2bundlejson({
+        cleanJSON: true,
+        decorateJSON: true,
+        polymer: true
+      });
+      return gulp.src([
+          'app/**/xliff/bundle.*.xlf'
+        ])
+        .pipe(through.obj(function (file, enc, callback) {
+          var bundle, bundlePath;
+          var base = path.basename(file.path, '.xlf').match(/^(.*)[.]([^.]*)$/);
+          var xliff = String(file.contents);
+          if (base) {
+            try {
+              bundlePath = path.join(file.base, 'locales', 'bundle.' + base[2] + '.json');
+              bundle = JSON.parse(stripBom(fs.readFileSync(bundlePath, 'utf8')));
+              x2j.parseXliff(xliff, { bundle: bundle }, function (output) {
+                file.contents = new Buffer(JSONstringify(output, null, 2));
+                file.path = bundlePath;
+                callback(null, file);
+              });
+            }
+            catch (ex) {
+              callback(null, file);
+            }
+          }
+          else {
+            callback(null, file);
+          }
+        }))
+        .pipe(gulp.dest('app'))
+        .pipe($.size({
+          title: 'import-xliff'
+        }));
+    });
+```
+
 ### Leverage task
 
 #### Input:
@@ -261,6 +318,57 @@ Sample to show default options:
         }
       }
       callback();
+    });
+```
+
+### Export Xliff task (experimental)
+
+#### Note: This task has to be processed after [Bundles task](#bundles).  `srcLanguage` must match with the default language of the app.
+
+#### Input:
+  - Next bundles object in gulpfile.js
+
+#### Output:
+  - bundle.{lang}.xlf Xliff in dest/xliff
+
+```javascript
+    var gulp = require('gulp');
+    var through = require('through2');
+    var xliff2bundlejson = require('xliff2bundlejson');
+
+    // Generate bundles.{lang}.xlf
+    gulp.task('export-xliff', function (callback) {
+      var srcLanguage = 'en';
+      var xliffPath = dist('xliff');
+      var x2j = new xliff2bundlejson({
+        cleanJSON: true,
+        decorateJSON: true,
+        polymer: true
+      });
+      var promises = [];
+      try {
+        fs.mkdirSync(xliffPath);
+      }
+      catch (e) {
+      }
+      for (var lang in bundles) {
+        if (lang) {
+          (function (destLanguage) {
+            promises.push(new Promise(function (resolve, reject) {
+              x2j.parseJSON(bundles, {
+                srcLanguage: srcLanguage,
+                destLanguage: destLanguage,
+                maxDepth: 32
+              }, function (output) {
+                fs.writeFile(path.join(xliffPath, 'bundle.' + destLanguage + '.xlf'), output, resolve);
+              });
+            }));
+          })(lang);
+        }
+      }
+      Promise.all(promises).then(function (outputs) {
+        callback();
+      });
     });
 ```
 

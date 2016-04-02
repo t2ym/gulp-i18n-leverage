@@ -177,6 +177,55 @@ Sample to show default options:
     });
 ```
 
+### Leverage task with unbundle
+
+#### Note: If translation is done in locales/bundle.*.json in source for all the elements, contents of per-element json are discarded and replaced with those in the bundle. The per-element json files will be translated in [feedback task](#feedback-task).
+
+#### Input:
+  - Current localized bundle JSON files in source
+  - Current localized JSON files in source (contents are discarded)
+  - Current default JSON files in source
+  - Next default JSON files in dist
+
+#### Output:
+  - Next localized JSON files in dist
+  - Bundles object in gulpfile.js
+
+```javascript
+    var gulp = require('gulp');
+    var i18nLeverage = require('gulp-i18n-leverage');
+    var through = require('through2'); // for unbundle
+    var stripBom = require('strip-bom'); // for unbundle
+
+    var bundles = {};
+
+    gulp.task('leverage', function () {
+      return gulp.src([ 'app/**/locales/*.json', '!app/**/locales/bundle.*.json' ]) // exclude bundles
+        // replace contents with unbundled ones
+        .pipe(through.obj(function (file, enc, callback) {
+          var bundle, base = path.basename(file.path, '.json').match(/^(.*)[.]([^.]*)$/);
+          if (base) {
+            try {
+              bundle = JSON.parse(stripBom(fs.readFileSync(path.join(file.base, 'locales', 'bundle.' + base[2] + '.json'), 'utf8')));
+              if (bundle[base[1]]) {
+                file.contents = new Buffer(JSONstringify(bundle[base[1]], null, 2));
+              }
+            }
+            catch (ex) {}
+          }
+          callback(null, file);
+        }))
+        .pipe(i18nLeverage({
+          jsonSpace: 2, // JSON format with 2 spaces
+          srcPath: 'app', // path to source root
+          distPath: 'dist', // path to dist root to fetch next default JSON files
+          finalize: false, // keep meta information
+          bundles: bundles // output bundles object
+        }))
+        .pipe(gulp.dest('dist')); // path to output next localized JSON files
+    });
+```
+
 ### Bundles task
 
 #### Input: 
@@ -227,6 +276,7 @@ Sample to show default options:
 #### Output:
   - Overwritten localized JSON files in source
   - Overwritten default JSON files in source
+  - Overwritten bundle JSON files in source [if translation is done in bundles](#leverage-task-with-unbundle)
 
 Outputs are ready to commit in the repository
 
@@ -238,7 +288,10 @@ Outputs are ready to commit in the repository
     // Only applicable to development builds; Skip it in production builds
     gulp.task('feedback', function () {
       // Copy from dist
-      var locales = gulp.src([ 'dist/**/locales/*.json', '!dist/locales/bundle.*.json'])
+      var locales = gulp.src([
+          'dist/**/locales/*.json',
+          '!dist/locales/bundle.*.json' // Remove this item if translation is done in bundles
+        ])
         .pipe(gulp.dest('app'));
 
       // Regenerate default JSON files

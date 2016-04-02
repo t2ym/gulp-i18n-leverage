@@ -147,7 +147,7 @@ Sample to show default options:
     });
 ```
 
-### Import Xliff task (experimental)
+### Import XLiff task (experimental)
 
 #### Note: This task has to be processed before [Leverage task with unbundle](#leverage-task-with-unbundle) to pick up outputs of this task.
 
@@ -321,7 +321,7 @@ Sample to show default options:
     });
 ```
 
-### Export Xliff task (experimental)
+### Export XLiff task (experimental)
 
 #### Note: This task has to be processed after [Bundles task](#bundles).  `srcLanguage` must match with the default language of the app.
 

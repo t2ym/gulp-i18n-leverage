@@ -147,12 +147,12 @@ Sample to show default options:
     });
 ```
 
-### Import XLiff task (experimental)
+### Import XLIFF task (experimental)
 
 #### Note: This task has to be processed before [Leverage task with unbundle](#leverage-task-with-unbundle) to pick up outputs of this task.
 
 #### Input:
-  - Next Xliff files in source
+  - Next XLIFF files in source
   - Current bundle JSON files in source (as output templates)
 
 #### Output:
@@ -300,7 +300,7 @@ Sample to show default options:
 
     gulp.task('bundles', function (callback) {
       var DEST_DIR = 'dist';
-      var localesPath = DEST_DIR + '/locales';
+      var localesPath = join.path(DEST_DIR, 'locales');
 
       try {
         fs.mkdirSync(localesPath);
@@ -321,7 +321,7 @@ Sample to show default options:
     });
 ```
 
-### Export XLiff task (experimental)
+### Export XLIFF task (experimental)
 
 #### Note: This task has to be processed after [Bundles task](#bundles).  `srcLanguage` must match with the default language of the app.
 
@@ -329,7 +329,7 @@ Sample to show default options:
   - Next bundles object in gulpfile.js
 
 #### Output:
-  - bundle.{lang}.xlf Xliff in dest/xliff
+  - bundle.{lang}.xlf XLIFF in DEST_DIR/xliff
 
 ```javascript
     var gulp = require('gulp');
@@ -338,8 +338,9 @@ Sample to show default options:
 
     // Generate bundles.{lang}.xlf
     gulp.task('export-xliff', function (callback) {
+      var DEST_DIR = 'dist';
       var srcLanguage = 'en';
-      var xliffPath = dist('xliff');
+      var xliffPath = path.join(DEST_DIR, 'xliff');
       var x2j = new xliff2bundlejson({
         cleanJSON: true,
         decorateJSON: true,
@@ -357,8 +358,7 @@ Sample to show default options:
             promises.push(new Promise(function (resolve, reject) {
               x2j.parseJSON(bundles, {
                 srcLanguage: srcLanguage,
-                destLanguage: destLanguage,
-                maxDepth: 32
+                destLanguage: destLanguage
               }, function (output) {
                 fs.writeFile(path.join(xliffPath, 'bundle.' + destLanguage + '.xlf'), output, resolve);
               });

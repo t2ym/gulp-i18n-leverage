@@ -1,6 +1,6 @@
 {
   "name": "gulp-i18n-leverage",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Merge changes in default JSON into localized JSON for i18n-behavior",
   "main": "index.js",
   "scripts": {

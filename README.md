@@ -378,6 +378,7 @@ Sample to show default options:
 
 #### Input:
   - Next localized JSON files in dist
+  - Next localized XLIFF files in dist
   - Custom element HTMLs
   - Non-custom-element HTMLs
 
@@ -385,6 +386,7 @@ Sample to show default options:
   - Overwritten localized JSON files in source
   - Overwritten default JSON files in source
   - Overwritten bundle JSON files in source [if translation is done in bundles](#leverage-task-with-unbundle)
+  - Overwritten bundle XLIFF files in source if XLIFF import/export are setup
 
 Outputs are ready to commit in the repository
 
@@ -398,7 +400,8 @@ Outputs are ready to commit in the repository
       // Copy from dist
       var locales = gulp.src([
           'dist/**/locales/*.json',
-          '!dist/locales/bundle.*.json' // Remove this item if translation is done in bundles
+          'dist/**/xliff/bundle.*.xlf', // Add this item if xliff import and export are enabled
+          //'!dist/locales/bundle.*.json' // Remove this item if translation is done in bundles
         ])
         .pipe(gulp.dest('app'));
 

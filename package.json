@@ -4,7 +4,7 @@
   "description": "Merge changes in default JSON into localized JSON for i18n-behavior",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcov -- -R spec && if [ \"${TRAVIS_BRANCH}\" != \"master\" ]; then coveralls <./coverage/lcov.info; fi",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcov -- -R spec && if [ \"${TRAVIS_BRANCH}\" != \"\" ]; then coveralls <./coverage/lcov.info; fi",
     "clean": "rm -rvf ./coverage"
   },
   "repository": {

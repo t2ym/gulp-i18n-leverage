@@ -344,7 +344,8 @@ Sample to show default options:
       var x2j = new xliff2bundlejson({
         cleanJSON: true,
         decorateJSON: true,
-        polymer: true
+        polymer: true,
+        date: new Date() // XLIFF's date attribute
       });
       var promises = [];
       try {

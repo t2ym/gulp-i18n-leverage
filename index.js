@@ -205,6 +205,16 @@ module.exports = function(options) {
       var item, item2;
       var removed;
 
+      // adjust patch path for array item addition
+      for (i in patch) {
+        item = patch[i];
+        if (item.op === 'add' &&
+            item.path.match(/\/-$/)) {
+          item.path = item.path.replace(/\/-$/, '');
+          item.path = item.path + '/' + (findValue(current, item.path).length - 1);
+        }
+      }
+
       // construct valueOpMap
       for (i in patch) {
         item = patch[i];

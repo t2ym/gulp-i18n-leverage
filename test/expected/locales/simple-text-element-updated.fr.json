@@ -110,6 +110,11 @@
         "op": "replace",
         "path": "/p_13/1",
         "value": "updated parameters"
+      },
+      {
+        "op": "add",
+        "path": "/p_13/3",
+        "value": "added parameter"
       }
     ]
   },
@@ -140,7 +145,8 @@
   "p_13": [
     "An updated paragraph with {1} is converted to {2}.",
     "updated parameters",
-    "fr <i18n-format>"
+    "fr <i18n-format>",
+    "added parameter"
   ],
   "renamed-paragraph": [
     "fr A paragraph with {1} is converted to {2}.",

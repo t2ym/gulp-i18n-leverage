@@ -205,20 +205,32 @@ module.exports = function(options) {
       var item, item2;
       var removed;
       var arrayLengths = {};
+      var arrayPath;
 
       // adjust patch path for array item addition
       for (i in patch) {
         item = patch[i];
         if (item.op === 'add' &&
-            item.path.match(/\/-$/)) {
-          item.path = item.path.replace(/\/-$/, '');
-          if (arrayLengths[item.path]) {
-            arrayLengths[item.path]++;
-          }
-          else {
-            arrayLengths[item.path] = findValue(prev, item.path).length;
-          }
-          item.path = item.path + '/' + arrayLengths[item.path];
+            item.path.match(/\/[0-9]{1,}$/)) {
+          arrayPath = item.path.replace(/\/[0-9]{1,}$/, '');
+          arrayLengths[arrayPath] = arrayLengths[arrayPath]
+                                      ? arrayLengths[arrayPath] + 1
+                                      : findValue(prev, arrayPath).length;
+        }
+        else if (item.op === 'remove' &&
+                 item.path.match(/\/[0-9]{1,}$/)) {
+          arrayPath = item.path.replace(/\/[0-9]{1,}$/, '');
+          arrayLengths[arrayPath] = arrayLengths[arrayPath]
+                                      ? arrayLengths[arrayPath] - 1
+                                      : findValue(prev, arrayPath).length - 1;
+        }
+        else if (item.op === 'add' &&
+                 item.path.match(/\/-$/)) {
+          arrayPath = item.path.replace(/\/-$/, '');
+          arrayLengths[arrayPath] = arrayLengths[arrayPath]
+                                      ? arrayLengths[arrayPath] + 1
+                                      : findValue(prev, arrayPath).length;
+          item.path = arrayPath + '/' + arrayLengths[arrayPath];
         }
       }
 

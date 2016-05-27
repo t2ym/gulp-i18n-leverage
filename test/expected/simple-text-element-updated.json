@@ -27,7 +27,11 @@
   "p_13": [
     "An updated paragraph with {1} is converted to {2}.",
     "updated parameters",
+    "inserted parameter",
     "<i18n-format>",
+    "parameter 2",
+    "parameter 4",
+    "parameter 5",
     "added parameter",
     "added parameter 2",
     "added parameter 3"

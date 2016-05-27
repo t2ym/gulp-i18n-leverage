@@ -73,7 +73,11 @@
   "p_13": [
     "fr A paragraph with {1} is converted to {2}.",
     "fr parameters",
-    "fr <i18n-format>"
+    "fr <i18n-format>",
+    "fr parameter 2",
+    "fr parameter 3",
+    "fr parameter 4",
+    "fr parameter 5"
   ],
   "paragraph": [
     "fr A paragraph with {1} is converted to {2}.",

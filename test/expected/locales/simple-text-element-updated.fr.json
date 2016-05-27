@@ -113,17 +113,22 @@
       },
       {
         "op": "add",
-        "path": "/p_13/3",
+        "path": "/p_13/2",
+        "value": "inserted parameter"
+      },
+      {
+        "op": "add",
+        "path": "/p_13/7",
         "value": "added parameter"
       },
       {
         "op": "add",
-        "path": "/p_13/4",
+        "path": "/p_13/8",
         "value": "added parameter 2"
       },
       {
         "op": "add",
-        "path": "/p_13/5",
+        "path": "/p_13/9",
         "value": "added parameter 3"
       }
     ]
@@ -155,7 +160,11 @@
   "p_13": [
     "An updated paragraph with {1} is converted to {2}.",
     "updated parameters",
+    "inserted parameter",
     "fr <i18n-format>",
+    "fr parameter 2",
+    "fr parameter 4",
+    "fr parameter 5",
     "added parameter",
     "added parameter 2",
     "added parameter 3"

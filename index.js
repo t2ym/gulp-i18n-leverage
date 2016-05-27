@@ -38,7 +38,6 @@ module.exports = function(options) {
           break;
         case 'object':
           if (Array.isArray(value)) {
-            // TODO: cannot handle deep objects properly
             target[prop] = target[prop] || [];
             deepMap(target[prop], value, map);
           }
@@ -47,6 +46,7 @@ module.exports = function(options) {
             deepMap(target[prop], value, map);
           }
           break;
+        /* istanbul ignore next: all types should be covered by above cases */
         default:
           target[prop] = value;
           break;
@@ -181,7 +181,8 @@ module.exports = function(options) {
           operations.push(rawOp);
         }
         break;
-      case 'test':
+      case 'test': // test operation is not supported in the current rfc6902 module
+      /* istanbul ignore next: all types should be covered by above cases */
       default:
         operations.push(rawOp);
         break;
@@ -335,8 +336,9 @@ module.exports = function(options) {
             }
           }
           break;
-        case 'copy': // TODO: should not happen for now
-        case 'test':
+        case 'copy': // copy operation is not supported by the current rfc6902 module
+        case 'test': // test operation is not supported by the current rfc6902 module
+        /* istanbul ignore next: all types should be covered by above cases */
         default:
           break;
         }

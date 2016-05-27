@@ -204,6 +204,7 @@ module.exports = function(options) {
       var i;
       var item, item2;
       var removed;
+      var arrayLengths = {};
 
       // adjust patch path for array item addition
       for (i in patch) {
@@ -211,7 +212,13 @@ module.exports = function(options) {
         if (item.op === 'add' &&
             item.path.match(/\/-$/)) {
           item.path = item.path.replace(/\/-$/, '');
-          item.path = item.path + '/' + (findValue(current, item.path).length - 1);
+          if (arrayLengths[item.path]) {
+            arrayLengths[item.path]++;
+          }
+          else {
+            arrayLengths[item.path] = findValue(prev, item.path).length;
+          }
+          item.path = item.path + '/' + arrayLengths[item.path];
         }
       }
 

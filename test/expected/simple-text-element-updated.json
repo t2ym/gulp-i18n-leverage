@@ -28,7 +28,9 @@
     "An updated paragraph with {1} is converted to {2}.",
     "updated parameters",
     "<i18n-format>",
-    "added parameter"
+    "added parameter",
+    "added parameter 2",
+    "added parameter 3"
   ],
   "renamed-paragraph": [
     "A paragraph with {1} is converted to {2}.",

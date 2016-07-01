@@ -19,7 +19,8 @@
     "internationalization",
     "l10n",
     "localization",
-    "gulp"
+    "gulp",
+    "gulpplugin"
   ],
   "author": "Tetsuya Mori <t2y3141592@gmail.com>",
   "license": "BSD-2-Clause",

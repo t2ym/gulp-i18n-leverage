@@ -362,6 +362,8 @@ module.exports = function(options) {
       var patchStatus;
       var i;
       var tmpContents;
+      var defaultMeta;
+      var locales = [];
       try {
         prevDefault = JSON.parse(stripBom(tmpContents = fs.readFileSync(paths.srcDefaultPath, 'utf8')));
       }
@@ -446,7 +448,15 @@ module.exports = function(options) {
       bundles[paths.lang] = bundles[paths.lang] || {};
       bundles[paths.lang][paths.baseName] = deepcopy(currentLocalized);
       bundles[''] = bundles[''] || {};
+      if (bundles[''][paths.baseName] &&
+          bundles[''][paths.baseName].meta) {
+        locales = bundles[''][paths.baseName].meta.locales;
+      }
+      locales.push(paths.lang);
+      locales.sort();
       bundles[''][paths.baseName] = deepcopy(currentDefault);
+      bundles[''][paths.baseName].meta = bundles[''][paths.baseName].meta || {};
+      bundles[''][paths.baseName].meta.locales = locales;
       return JSONstringify(currentLocalized, null, jsonSpace);
     }
 

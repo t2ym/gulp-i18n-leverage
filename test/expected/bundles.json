@@ -5,9 +5,55 @@
         "todo": []
       }
     },
-    "simple-text-element": {
+    "fallback-text-element": {
       "meta": {
-        "todo": []
+        "todo": [
+          {
+            "op": "add",
+            "path": "/div_9:span",
+            "value": "simple text within div"
+          },
+          {
+            "op": "add",
+            "path": "/div_9:span_1",
+            "value": "simple text within div 2"
+          },
+          {
+            "op": "add",
+            "path": "/div_9:div_2:div",
+            "value": "great grandchild text within div"
+          },
+          {
+            "op": "add",
+            "path": "/div_10:text",
+            "value": " simple text as the first element in div "
+          },
+          {
+            "op": "add",
+            "path": "/div_10:span_1",
+            "value": "simple text within div"
+          },
+          {
+            "op": "add",
+            "path": "/div_10:text_2",
+            "value": " simple text in the middle of div "
+          },
+          {
+            "op": "add",
+            "path": "/div_10:span_3",
+            "value": "simple text within div 2"
+          },
+          {
+            "op": "add",
+            "path": "/div_10:div_4:div",
+            "value": "great grandchild text within div"
+          },
+          {
+            "op": "add",
+            "path": "/div_10:text_5",
+            "value": " simple text at the last element in div "
+          }
+        ]
       },
       "model": {},
       "text": "fr  outermost text at the beginning ",
@@ -17,15 +63,15 @@
       "span_6": "fr simple text without id 2",
       "label-1": "fr simple text with id",
       "label-2": "fr simple text with id 2",
-      "div_9:span": "fr simple text within div",
-      "div_9:span_1": "fr simple text within div 2",
-      "div_9:div_2:div": "fr great grandchild text within div",
-      "div_10:text": "fr  simple text as the first element in div ",
-      "div_10:span_1": "fr simple text within div",
-      "div_10:text_2": "fr  simple text in the middle of div ",
-      "div_10:span_3": "fr simple text within div 2",
-      "div_10:div_4:div": "fr great grandchild text within div",
-      "div_10:text_5": "fr  simple text at the last element in div ",
+      "div_9:span": "simple text within div",
+      "div_9:span_1": "simple text within div 2",
+      "div_9:div_2:div": "great grandchild text within div",
+      "div_10:text": " simple text as the first element in div ",
+      "div_10:span_1": "simple text within div",
+      "div_10:text_2": " simple text in the middle of div ",
+      "div_10:span_3": "simple text within div 2",
+      "div_10:div_4:div": "great grandchild text within div",
+      "div_10:text_5": " simple text at the last element in div ",
       "toplevel-div:span": "fr simple text within div",
       "toplevel-div:span_1": "fr simple text within div 2",
       "third-level-div": "fr great grandchild text within div",
@@ -48,7 +94,7 @@
       ],
       "text_15": "fr  outermost text at the end "
     },
-    "simple-text-element-empty": {
+    "simple-text-element-empty-json": {
       "meta": {
         "todo": [
           {
@@ -257,7 +303,7 @@
       ],
       "text_15": " outermost text at the end "
     },
-    "simple-text-element-empty-json": {
+    "simple-text-element-empty": {
       "meta": {
         "todo": [
           {
@@ -652,55 +698,9 @@
       "added-2": "added text 2",
       "added-3": "added text 3"
     },
-    "fallback-text-element": {
+    "simple-text-element": {
       "meta": {
-        "todo": [
-          {
-            "op": "add",
-            "path": "/div_9:span",
-            "value": "simple text within div"
-          },
-          {
-            "op": "add",
-            "path": "/div_9:span_1",
-            "value": "simple text within div 2"
-          },
-          {
-            "op": "add",
-            "path": "/div_9:div_2:div",
-            "value": "great grandchild text within div"
-          },
-          {
-            "op": "add",
-            "path": "/div_10:text",
-            "value": " simple text as the first element in div "
-          },
-          {
-            "op": "add",
-            "path": "/div_10:span_1",
-            "value": "simple text within div"
-          },
-          {
-            "op": "add",
-            "path": "/div_10:text_2",
-            "value": " simple text in the middle of div "
-          },
-          {
-            "op": "add",
-            "path": "/div_10:span_3",
-            "value": "simple text within div 2"
-          },
-          {
-            "op": "add",
-            "path": "/div_10:div_4:div",
-            "value": "great grandchild text within div"
-          },
-          {
-            "op": "add",
-            "path": "/div_10:text_5",
-            "value": " simple text at the last element in div "
-          }
-        ]
+        "todo": []
       },
       "model": {},
       "text": "fr  outermost text at the beginning ",
@@ -710,15 +710,15 @@
       "span_6": "fr simple text without id 2",
       "label-1": "fr simple text with id",
       "label-2": "fr simple text with id 2",
-      "div_9:span": "simple text within div",
-      "div_9:span_1": "simple text within div 2",
-      "div_9:div_2:div": "great grandchild text within div",
-      "div_10:text": " simple text as the first element in div ",
-      "div_10:span_1": "simple text within div",
-      "div_10:text_2": " simple text in the middle of div ",
-      "div_10:span_3": "simple text within div 2",
-      "div_10:div_4:div": "great grandchild text within div",
-      "div_10:text_5": " simple text at the last element in div ",
+      "div_9:span": "fr simple text within div",
+      "div_9:span_1": "fr simple text within div 2",
+      "div_9:div_2:div": "fr great grandchild text within div",
+      "div_10:text": "fr  simple text as the first element in div ",
+      "div_10:span_1": "fr simple text within div",
+      "div_10:text_2": "fr  simple text in the middle of div ",
+      "div_10:span_3": "fr simple text within div 2",
+      "div_10:div_4:div": "fr great grandchild text within div",
+      "div_10:text_5": "fr  simple text at the last element in div ",
       "toplevel-div:span": "fr simple text within div",
       "toplevel-div:span_1": "fr simple text within div 2",
       "third-level-div": "fr great grandchild text within div",
@@ -744,51 +744,20 @@
   },
   "": {
     "error-element": {
-      "meta": {}
+      "meta": {
+        "locales": [
+          "fr"
+        ]
+      }
     },
-    "simple-text-element": {
-      "meta": {},
-      "model": {},
-      "text": " outermost text at the beginning ",
-      "h1_3": "outermost header 1",
-      "text_4": " outermost text in the middle ",
-      "span_5": "simple text without id",
-      "span_6": "simple text without id 2",
-      "label-1": "simple text with id",
-      "label-2": "simple text with id 2",
-      "div_9:span": "simple text within div",
-      "div_9:span_1": "simple text within div 2",
-      "div_9:div_2:div": "great grandchild text within div",
-      "div_10:text": " simple text as the first element in div ",
-      "div_10:span_1": "simple text within div",
-      "div_10:text_2": " simple text in the middle of div ",
-      "div_10:span_3": "simple text within div 2",
-      "div_10:div_4:div": "great grandchild text within div",
-      "div_10:text_5": " simple text at the last element in div ",
-      "toplevel-div:span": "simple text within div",
-      "toplevel-div:span_1": "simple text within div 2",
-      "third-level-div": "great grandchild text within div",
-      "second-level-div:div_1": "great grandchild text within div without id",
-      "div_12:ul:li": "line item without id 1",
-      "div_12:ul:li_1": "line item without id 2",
-      "div_12:ul:li_2": "line item without id 3",
-      "line-items:li": "line item with id 1",
-      "line-items:li_1": "line item with id 2",
-      "line-items:li_2": "line item with id 3",
-      "p_13": [
-        "A paragraph with {1} is converted to {2}.",
-        "parameters",
-        "<i18n-format>"
-      ],
-      "paragraph": [
-        "A paragraph with {1} is converted to {2}.",
-        "id",
-        "<i18n-format>"
-      ],
-      "text_15": " outermost text at the end "
-    },
-    "simple-text-element-empty": {
-      "meta": {},
+    "fallback-text-element": {
+      "meta": {
+        "locales": [
+          "fr",
+          "fr-CA",
+          "zh-Hans-CN"
+        ]
+      },
       "model": {},
       "text": " outermost text at the beginning ",
       "h1_3": "outermost header 1",
@@ -829,7 +798,56 @@
       "text_15": " outermost text at the end "
     },
     "simple-text-element-empty-json": {
-      "meta": {},
+      "meta": {
+        "locales": [
+          "fr"
+        ]
+      },
+      "model": {},
+      "text": " outermost text at the beginning ",
+      "h1_3": "outermost header 1",
+      "text_4": " outermost text in the middle ",
+      "span_5": "simple text without id",
+      "span_6": "simple text without id 2",
+      "label-1": "simple text with id",
+      "label-2": "simple text with id 2",
+      "div_9:span": "simple text within div",
+      "div_9:span_1": "simple text within div 2",
+      "div_9:div_2:div": "great grandchild text within div",
+      "div_10:text": " simple text as the first element in div ",
+      "div_10:span_1": "simple text within div",
+      "div_10:text_2": " simple text in the middle of div ",
+      "div_10:span_3": "simple text within div 2",
+      "div_10:div_4:div": "great grandchild text within div",
+      "div_10:text_5": " simple text at the last element in div ",
+      "toplevel-div:span": "simple text within div",
+      "toplevel-div:span_1": "simple text within div 2",
+      "third-level-div": "great grandchild text within div",
+      "second-level-div:div_1": "great grandchild text within div without id",
+      "div_12:ul:li": "line item without id 1",
+      "div_12:ul:li_1": "line item without id 2",
+      "div_12:ul:li_2": "line item without id 3",
+      "line-items:li": "line item with id 1",
+      "line-items:li_1": "line item with id 2",
+      "line-items:li_2": "line item with id 3",
+      "p_13": [
+        "A paragraph with {1} is converted to {2}.",
+        "parameters",
+        "<i18n-format>"
+      ],
+      "paragraph": [
+        "A paragraph with {1} is converted to {2}.",
+        "id",
+        "<i18n-format>"
+      ],
+      "text_15": " outermost text at the end "
+    },
+    "simple-text-element-empty": {
+      "meta": {
+        "locales": [
+          "fr"
+        ]
+      },
       "model": {},
       "text": " outermost text at the beginning ",
       "h1_3": "outermost header 1",
@@ -870,7 +888,11 @@
       "text_15": " outermost text at the end "
     },
     "simple-text-element-updated": {
-      "meta": {},
+      "meta": {
+        "locales": [
+          "fr"
+        ]
+      },
       "model": {},
       "text": " outermost text at the beginning ",
       "h1_3": "outermost header 1",
@@ -921,8 +943,12 @@
       "added-2": "added text 2",
       "added-3": "added text 3"
     },
-    "fallback-text-element": {
-      "meta": {},
+    "simple-text-element": {
+      "meta": {
+        "locales": [
+          "fr"
+        ]
+      },
       "model": {},
       "text": " outermost text at the beginning ",
       "h1_3": "outermost header 1",

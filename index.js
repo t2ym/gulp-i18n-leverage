@@ -358,6 +358,7 @@ module.exports = function(options) {
       var prevLocalized;
       var prevLocalizedOriginal;
       var currentLocalized;
+      var currentLocalizedNoAncestors;
       var prevAncestors = [];
       var patchStatus;
       var i;
@@ -423,6 +424,7 @@ module.exports = function(options) {
       }
 
       currentLocalized = deepcopy(currentDefault);
+      currentLocalizedNoAncestors = deepcopy(currentDefault);
 
       for (i = 0; i < prevAncestors.length; i++) {
         if (prevAncestors[i]) {
@@ -431,8 +433,11 @@ module.exports = function(options) {
       }
 
       deepMap(currentLocalized, prevLocalized, function (value) { return value; });
+      deepMap(currentLocalizedNoAncestors, prevLocalized, function (value) { return value; });
 
       updateMetaTodo(currentLocalized, prevLocalizedOriginal);
+      updateMetaTodo(currentLocalizedNoAncestors, prevLocalizedOriginal);
+      currentLocalized.meta = currentLocalizedNoAncestors.meta;
       if (finalize) {
         if (currentLocalized.meta &&
             currentLocalized.meta.todo &&

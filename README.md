@@ -786,13 +786,13 @@ Outputs are ready to commit in the repository
 ##### 1. Change any UI strings in the following HTMLs
 
 ```
-    polymer-starter-kit-i18n/src/*.html
+    i18n-starter-kit/src/*.html
 ```
 
 ##### 2. Merge changes into JSON files
 
 ```
-    cd polymer-starter-kit-i18n
+    cd i18n-starter-kit
     npm run build
 ```
 
